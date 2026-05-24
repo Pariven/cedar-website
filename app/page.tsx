@@ -126,7 +126,7 @@ const carouselSlides = [
     title: 'OIPD Partnership',
     subtitle: 'Internationally accredited programmes with the Oxbridge Institute of Professional Development',
     tag: 'Global Accreditation',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Picture5-91lFEyh7MUi8jTqsOJnSaH3MaYG5AM.png',
+    logo: '/images/ChatGPT Image May 25, 2026, 05_49_45 AM.png',
     href: '/about',
     bg: 'from-[#1E3A3F] to-[#0B7A8F]',
   },
@@ -156,11 +156,11 @@ export default function HomePage() {
     return () => { if (timer.current) clearInterval(timer.current) }
   }, [])
 
-  // parallax removed — restoring original partners background
-
-  const goTo = (i: number) => {
-    if (timer.current) clearInterval(timer.current)
-    setCurrent(i)
+  const goTo = (index: number) => {
+    setCurrent(index)
+    if (timer.current) {
+      clearInterval(timer.current)
+    }
     startTimer()
   }
 
@@ -168,7 +168,6 @@ export default function HomePage() {
     <>
       <Navbar />
 
-      {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-teal">
         {/* Fixed background layer so hero background stays while scrolling */}
         <div className="hero-fixed-bg -z-10 pointer-events-none" />
@@ -383,14 +382,24 @@ export default function HomePage() {
 
             {/* Controls */}
             <button
-              onClick={() => goTo((current - 1 + carouselSlides.length) % carouselSlides.length)}
+              onClick={() => {
+                const idx = (current - 1 + carouselSlides.length) % carouselSlides.length
+                setCurrent(idx)
+                if (timer.current) clearInterval(timer.current)
+                startTimer()
+              }}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
               aria-label="Previous slide"
             >
               <ChevronLeft size={20} />
             </button>
             <button
-              onClick={() => goTo((current + 1) % carouselSlides.length)}
+              onClick={() => {
+                const idx = (current + 1) % carouselSlides.length
+                setCurrent(idx)
+                if (timer.current) clearInterval(timer.current)
+                startTimer()
+              }}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
               aria-label="Next slide"
             >
@@ -403,7 +412,11 @@ export default function HomePage() {
             {carouselSlides.map((_, i) => (
               <button
                 key={i}
-                onClick={() => goTo(i)}
+                onClick={() => {
+                  setCurrent(i)
+                  if (timer.current) clearInterval(timer.current)
+                  startTimer()
+                }}
                 className={`rounded-full transition-all duration-300 ${i === current ? 'w-7 h-2.5 bg-[#3DC2B8]' : 'w-2.5 h-2.5 bg-[#1E3A3F]/20 hover:bg-[#1E3A3F]/40'}`}
                 aria-label={`Go to slide ${i + 1}`}
               />
@@ -434,7 +447,7 @@ export default function HomePage() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-12 w-auto object-contain opacity-100"
+                  className={`${logo.alt === 'Custom Logo' ? 'h-30' : 'h-12'} w-auto object-contain opacity-100`}
                 />
               </FadeIn>
             ))}

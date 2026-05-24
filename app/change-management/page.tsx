@@ -176,6 +176,8 @@ export default function ChangeManagementPage() {
         highlight="Transform"
         description="A comprehensive three-part series by certified change management trainers helping professionals understand, embrace, and lead change effectively."
         breadcrumb={[{ label: 'Change Management', href: '/change-management' }]}
+        logoSrc={'/images/ChatGPT Image May 25, 2026, 05_49_45 AM.png'}
+        logoAlt={'Cedar / Partner logo'}
       />
 
       {/* Intro Section */}

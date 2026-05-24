@@ -31,7 +31,8 @@ const values = [
 
 const partners = [
   {
-    src: '/images/ChatGPT Image May 25, 2026, 05_49_45 AM.png',
+    src: '/images/b368ae98-7f90-4b23-abbf-940b2aaab4c3.png',
+    logo: '/images/ChatGPT Image May 25, 2026, 05_49_45 AM.png',
     title: 'OIPD - Oxbridge Institute of Professional Development',
     desc: 'International accreditation partner providing globally recognised credentials for our leadership and management programmes.',
   },
@@ -156,7 +157,7 @@ export default function AboutPage() {
                   <div className="relative rounded-2xl overflow-hidden w-full min-h-[360px] shadow-sm hover:shadow-2xl will-change-transform transform-gpu transition-transform duration-400 ease-out hover:-translate-y-2 hover:scale-105">
                     <div
                       className="absolute inset-0 bg-center bg-cover"
-                      style={{ backgroundImage: `url(${p.src})` }}
+                      style={{ backgroundImage: `url('${p.src}')` }}
                     />
                     <div className="absolute inset-0 bg-black/60" />
 
@@ -166,7 +167,7 @@ export default function AboutPage() {
                         <img
                           src={p.logo}
                           alt={`${p.title} logo`}
-                          className={`mb-4 object-contain z-30 ${p.title === 'ChangeabilityPro' ? 'w-44 h-44' : 'w-28 h-28'}`}
+                          className={`mb-4 object-contain z-30 ${p.title.startsWith('OIPD') ? 'w-40 h-40' : p.title === 'ChangeabilityPro' ? 'w-44 h-44' : 'w-28 h-28'}`}
                           onError={(e) => {
                             const el = e.target as HTMLImageElement
                             if (p.logoFallback) el.src = p.logoFallback
