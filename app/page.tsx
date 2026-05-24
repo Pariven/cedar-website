@@ -434,7 +434,7 @@ export default function HomePage() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-16 w-auto object-contain opacity-100"
+                  className="h-12 w-auto object-contain opacity-100"
                 />
               </FadeIn>
             ))}

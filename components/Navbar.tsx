@@ -49,7 +49,7 @@ export default function Navbar() {
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CEDAR%20LOGO%20landscape-tYuS44ZfwiIQod6G73tO4SPsLrsKQT.png"
               alt="Cedar Tech Training"
-              className="h-12 lg:h-16 w-auto"
+              className="h-10 lg:h-12 w-auto"
             />
           </Link>
 
