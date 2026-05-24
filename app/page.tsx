@@ -428,13 +428,13 @@ export default function HomePage() {
               { src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Picture4-XlaWgT05Irl1s0WdejCjHHYCx9iUJg.png', alt: 'ELSA' },
               { src: '/images/DTVET%20LOGO-WHITE%20TM.png', alt: 'DTVET' },
               { src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Picture2-RSL4fZMvOlIF6JFFoE1EvLkAtmuEAC.png', alt: 'ELSA App' },
-              { src: '/images/ChatGPT%20Image%20May%2025%2C%202026%2C%2005_03_15%20AM.png', alt: 'Custom Logo' },
+              { src: '/images/ChatGPT Image May 25, 2026, 05_49_45 AM.png', alt: 'Custom Logo' },
             ].map((logo) => (
               <FadeIn key={logo.alt} direction="none">
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-12 w-auto object-contain opacity-100"
+                  className="h-16 w-auto object-contain opacity-100"
                 />
               </FadeIn>
             ))}
