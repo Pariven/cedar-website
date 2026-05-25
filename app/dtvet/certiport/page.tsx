@@ -89,6 +89,7 @@ export default function CertiportPage() {
         ]}
         logoSrc="/images/certiport.png"
         logoAlt="Certiport logo"
+        logoClassName="scale-[1.8]"
       />
 
       <section className="py-20 bg-background">
