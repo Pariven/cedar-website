@@ -1,3 +1,7 @@
+'use client'
+
+import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
@@ -22,15 +26,15 @@ const highlightCards = [
 ]
 
 const certificationBodies = [
-  { src: '/images/image.png', alt: 'Pearson' },
-  { src: '/images/AWS.png', alt: 'AWS Training and Certification' },
-  { src: '/images/Vmware-by-broadcom.svg.png', alt: 'VMware by Broadcom' },
-  { src: '/images/comptia-logo-png_seeklogo-237177.png', alt: 'CompTIA' },
-  { src: '/images/ISC2-Logo-350x350.png', alt: 'ISC2' },
-  { src: '/images/ECC.png', alt: 'EC-Council' },
-  { src: '/images/Cisco_Logo_no_TM_Sky_Blue-CMYK.png', alt: 'Cisco' },
-  { src: '/images/Microsoft_White_Box.png', alt: 'Microsoft' },
-  { src: '/images/IT-Specialist-Logo_PPT-Stacked.jpg', alt: 'Information Technology Specialist' },
+  { src: '/images/AWS.png', alt: 'AWS', imgClass: 'max-h-12 w-auto' },
+  { src: '/images/Vmware-by-broadcom.svg.png', alt: 'VMware by Broadcom', imgClass: 'max-h-10 w-auto' },
+  { src: '/images/comptia-logo-png_seeklogo-237177.png', alt: 'CompTIA', imgClass: 'max-h-20 w-auto' },
+  { src: '/images/ISC2-Logo-350x350.png', alt: 'ISC2', imgClass: 'max-h-14 w-auto' },
+  { src: '/images/ECC.png', alt: 'EC-Council', imgClass: 'max-h-10 w-auto' },
+  { src: '/images/Cisco_Logo_no_TM_Sky_Blue-CMYK.png', alt: 'Cisco', imgClass: 'max-h-14 w-auto' },
+  { src: '/images/Microsoft_White_Box.png', alt: 'Microsoft', imgClass: 'max-h-10 w-auto' },
+  { src: '/images/IT-Specialist-Logo_PPT-Stacked.jpg', alt: 'IT Specialist', imgClass: 'max-h-14 w-auto' },
+  { src: '/images/pmi_mb_logo_hrz_fc_rgb.png', alt: 'PMI', imgClass: 'max-h-12 w-auto' },
 ]
 
 const courseSections = [
@@ -164,6 +168,96 @@ const courseSections = [
   },
 ]
 
+// Smooth animated accordion item
+function AccordionItem({ section }: { section: typeof courseSections[0] }) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div
+      className={`rounded-3xl border bg-white shadow-[0_8px_32px_rgba(16,52,58,0.08)] overflow-hidden transition-all duration-300 ${
+        open ? 'border-[#1BA098]/40' : 'border-[#DCE6E6]'
+      }`}
+    >
+      {/* Header */}
+      <button
+        onClick={() => setOpen((prev) => !prev)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left group focus:outline-none"
+        aria-expanded={open}
+      >
+        <div className="flex items-center gap-4">
+          <span
+            className={`h-12 w-12 rounded-2xl flex items-center justify-center font-bold text-lg transition-colors duration-300 ${
+              open ? 'bg-[#1BA098] text-white' : 'bg-[#0B7A8F]/10 text-[#0B7A8F]'
+            }`}
+          >
+            {section.title[0]}
+          </span>
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-[#7B8B8F]">Category</p>
+            <p className="font-display font-bold text-foreground text-lg sm:text-xl">{section.title}</p>
+          </div>
+        </div>
+
+        {/* Animated chevron icon */}
+        <span
+          className={`h-9 w-9 rounded-full border flex items-center justify-center transition-all duration-300 ${
+            open
+              ? 'border-[#1BA098] bg-[#1BA098] text-white rotate-180'
+              : 'border-[#E4EFF0] bg-transparent text-[#0B7A8F] rotate-0'
+          }`}
+        >
+          <ChevronDown size={18} strokeWidth={2.5} />
+        </span>
+      </button>
+
+      {/* Smooth animated content */}
+      <div
+        style={{
+          maxHeight: open ? '2000px' : '0px',
+          opacity: open ? 1 : 0,
+          transition: 'max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease',
+          overflow: 'hidden',
+        }}
+      >
+        <div className="border-t border-[#E6EEF0] px-6 pb-6 pt-4 space-y-5">
+          {section.groups.map((group) => (
+            <div
+              key={group.name}
+              className="rounded-2xl border border-[#E6EEF0] bg-[#F7FBFB] px-5 py-4"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <span className="h-14 w-14 rounded-xl bg-white border border-[#DCE6E6] flex items-center justify-center flex-shrink-0 p-1.5">
+                  {group.logoSrc ? (
+                    <img
+                      src={group.logoSrc}
+                      alt={`${group.name} logo`}
+                      className="max-h-10 max-w-[48px] w-auto object-contain"
+                    />
+                  ) : (
+                    <span className="font-bold text-[#0B7A8F] text-lg">{group.name[0]}</span>
+                  )}
+                </span>
+                <p className="font-semibold text-foreground text-base">{group.name}</p>
+              </div>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {group.courses.map((course) => (
+                  <li
+                    key={course}
+                    className="rounded-xl border border-[#E6EEF0] bg-white px-4 py-2 text-sm text-foreground shadow-sm"
+                  >
+                    {course}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function PearsonPage() {
   return (
     <>
@@ -195,7 +289,7 @@ export default function PearsonPage() {
             {highlightCards.map((card) => (
               <div
                 key={card.title}
-                className="rounded-2xl border border-border bg-card px-6 py-5 shadow-sm"
+                className="rounded-2xl border border-border bg-card px-6 py-5 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-default"
               >
                 <p className="font-semibold text-foreground text-sm">{card.title}</p>
                 <p className="text-muted-foreground text-xs mt-2">{card.desc}</p>
@@ -220,12 +314,12 @@ export default function PearsonPage() {
             {certificationBodies.map((logo) => (
               <div
                 key={logo.alt}
-                className="bg-white rounded-xl border border-[#E4EFF0] shadow-sm px-4 py-3 flex items-center justify-center h-20"
+                className="bg-white rounded-2xl border border-[#E4EFF0] shadow-sm px-5 py-5 flex items-center justify-center h-28 hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-pointer"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-10 w-auto object-contain"
+                  className={`object-contain ${logo.imgClass}`}
                 />
               </div>
             ))}
@@ -244,67 +338,9 @@ export default function PearsonPage() {
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {courseSections.map((section) => (
-              <details
-                key={section.title}
-                className="course-accordion group rounded-3xl border border-[#DCE6E6] bg-white shadow-[0_20px_40px_rgba(16,52,58,0.08)]"
-              >
-                <summary className="flex items-center justify-between cursor-pointer list-none px-6 py-5">
-                  <div className="flex items-center gap-4">
-                    <span className="h-12 w-12 rounded-2xl bg-[#0B7A8F]/10 text-[#0B7A8F] flex items-center justify-center font-bold text-lg">
-                      {section.title[0]}
-                    </span>
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.2em] text-[#7B8B8F]">Category</p>
-                      <p className="font-display font-bold text-foreground text-lg sm:text-xl">
-                        {section.title}
-                      </p>
-                    </div>
-                  </div>
-                  <span className="h-9 w-9 rounded-full border border-[#E4EFF0] text-[#0B7A8F] flex items-center justify-center text-sm transition-transform group-open:rotate-180">
-                    ˅
-                  </span>
-                </summary>
-
-                <div className="course-accordion-content border-t border-[#E6EEF0] px-6 pb-6 pt-4 space-y-5">
-                  {section.groups.map((group) => (
-                    <div
-                      key={group.name}
-                      className="rounded-2xl border border-[#E6EEF0] bg-[#F7FBFB] px-5 py-4"
-                    >
-                      <div className="flex items-center gap-3">
-                        <span className="h-10 w-10 rounded-xl bg-white text-[#0B7A8F] border border-[#DCE6E6] flex items-center justify-center font-bold">
-                          {group.logoSrc ? (
-                            <img
-                              src={group.logoSrc}
-                              alt={`${group.name} logo`}
-                              className="max-h-7 w-auto object-contain"
-                            />
-                          ) : (
-                            group.name[0]
-                          )}
-                        </span>
-                        <div>
-                          <p className="text-xs uppercase tracking-[0.2em] text-[#7B8B8F]">Track</p>
-                          <p className="font-semibold text-foreground">{group.name}</p>
-                        </div>
-                      </div>
-
-                      <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {group.courses.map((course) => (
-                          <li
-                            key={course}
-                            className="rounded-xl border border-[#E6EEF0] bg-white px-4 py-2 text-sm text-foreground shadow-sm"
-                          >
-                            {course}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </details>
+              <AccordionItem key={section.title} section={section} />
             ))}
           </div>
         </div>

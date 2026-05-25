@@ -437,7 +437,6 @@ export default function HomePage() {
           </FadeIn>
           <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
             {[
-              { src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CEDAR%20LOGO%20landscape-tYuS44ZfwiIQod6G73tO4SPsLrsKQT.png', alt: 'Cedar Tech Training' },
               { src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Picture4-XlaWgT05Irl1s0WdejCjHHYCx9iUJg.png', alt: 'ELSA' },
               { src: '/images/DTVET%20LOGO-WHITE%20TM.png', alt: 'DTVET' },
               { src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Picture2-RSL4fZMvOlIF6JFFoE1EvLkAtmuEAC.png', alt: 'ELSA App' },

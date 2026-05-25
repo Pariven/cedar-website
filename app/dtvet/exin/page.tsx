@@ -11,98 +11,69 @@ const exinHighlights = [
 
 const programLogos = [
   {
-    src: '/images/exin/EXIN-Data-Analytics-Foundation-certified-badge.png',
+    src: '/images/Exin/EXIN-Data-Analytics-Foundation-certified-badge.png',
     alt: 'EXIN Data Analytics Foundation',
+    label: 'Data Analytics Foundation',
   },
   {
-    src: '/images/exin/EXIN-BCS-Artificial-Intelligence-Foundation-Badge-1024x1024.png',
+    src: '/images/Exin/EXIN-BCS-Artificial-Intelligence-Foundation-Badge-1024x1024.png',
     alt: 'EXIN Artificial Intelligence Foundation',
+    label: 'Artificial Intelligence Foundation',
   },
   {
-    src: '/images/exin/EXIN ARTIFICIAL INTELLIGENCE ESSENTIALS BADGE.png',
+    src: '/images/Exin/EXIN ARTIFICIAL INTELLIGENCE ESSENTIALS BADGE.png',
     alt: 'EXIN Artificial Intelligence Essentials',
+    label: 'Artificial Intelligence Essentials',
   },
   {
-    src: '/images/exin/EXIN AI COMPLIANCE OFFICER BADGE.png',
+    src: '/images/Exin/EXIN AI COMPLIANCE OFFICER BADGE.png',
     alt: 'EXIN AI Compliance Officer',
+    label: 'AI Compliance Officer',
   },
   {
-    src: '/images/exin/EXIN MACHINE LEARNING AWARD BADGE.png',
+    src: '/images/Exin/EXIN MACHINE LEARNING AWARD BADGE.png',
     alt: 'EXIN Machine Learning Award',
+    label: 'Machine Learning Award',
   },
   {
-    src: '/images/exin/EXIN GENERATIVE AI AWARD BADGE.png',
+    src: '/images/Exin/EXIN GENERATIVE AI AWARD BADGE.png',
     alt: 'EXIN Generative AI Award',
-  },
-]
-
-const exinMasterlist = [
-  {
-    category: 'Artificial Intelligence',
-    programs: [
-      {
-        title: 'EXIN Data Analytics Foundation',
-        logo: '/images/exin/EXIN-Data-Analytics-Foundation-certified-badge.png',
-      },
-      {
-        title: 'EXIN Artificial Intelligence Foundation',
-        logo: '/images/exin/EXIN-BCS-Artificial-Intelligence-Foundation-Badge-1024x1024.png',
-      },
-      {
-        title: 'EXIN Artificial Intelligence Essentials',
-        logo: '/images/exin/EXIN ARTIFICIAL INTELLIGENCE ESSENTIALS BADGE.png',
-      },
-      {
-        title: 'EXIN AI Compliance Officer',
-        logo: '/images/exin/EXIN AI COMPLIANCE OFFICER BADGE.png',
-      },
-      {
-        title: 'EXIN Machine Learning Award',
-        logo: '/images/exin/EXIN MACHINE LEARNING AWARD BADGE.png',
-      },
-      {
-        title: 'EXIN Generative AI Award',
-        logo: '/images/exin/EXIN GENERATIVE AI AWARD BADGE.png',
-      },
-    ],
+    label: 'Generative AI Award',
   },
   {
-    category: 'Project Management',
-    programs: [
-      {
-        title: 'EXIN Dynamic Project Management Method (DPMM) Foundation',
-        logo: '/images/exin/EXIN DYNAMIC PROJECT MANAGEMENT METHOD (DPMM) FOUNDATION BADGE.png',
-      },
-    ],
+    src: '/images/Exin/EXIN DYNAMIC PROJECT MANAGEMENT METHOD (DPMM) FOUNDATION BADGE.png',
+    alt: 'EXIN DPMM Foundation',
+    label: 'DPMM Foundation',
   },
   {
-    category: 'Information Technology',
-    programs: [
-      {
-        title: 'EXIN SIAM Professional',
-        logo: '/images/exin/EXIN_Badge_ModuleProfessional_SIAM.png',
-      },
-      {
-        title: 'EXIN IT Service Management ISO/IEC 20000 Foundation',
-        logo: '/images/exin/EXIN_Badge_ModuleFoundation_ITServiceM_ISO.png',
-      },
-      {
-        title: 'VeriSM Digital Transformation Professional',
-        logo: '/images/exin/EXIN_Badge_ModuleProfessional_VeriSM-1024x1024.png',
-      },
-      {
-        title: 'EXIN Privacy & Data Protection Professional',
-        logo: '/images/exin/EXIN_Badge_ModuleProfessional_PDP.png',
-      },
-      {
-        title: 'EXIN IT Information Security ISO/IEC 27001 Foundation',
-        logo: '/images/exin/EXIN_Badge_ModuleFoundation_InformationSM_ISO.png',
-      },
-      {
-        title: 'EXIN IT Information Security Management ISO/IEC 27001 Professional',
-        logo: '/images/exin/EXIN_Badge_ModuleProfessional_InformationSM_ISO.png',
-      },
-    ],
+    src: '/images/Exin/EXIN_Badge_ModuleProfessional_SIAM.png',
+    alt: 'EXIN SIAM Professional',
+    label: 'SIAM Professional',
+  },
+  {
+    src: '/images/Exin/EXIN_Badge_ModuleFoundation_ITServiceM_ISO.png',
+    alt: 'EXIN IT Service Management Foundation',
+    label: 'IT Service Management Foundation',
+  },
+  {
+    src: '/images/Exin/EXIN_Badge_ModuleProfessional_VeriSM-1024x1024.png',
+    alt: 'VeriSM Digital Transformation Professional',
+    label: 'VeriSM Professional',
+  },
+  {
+    src: '/images/Exin/EXIN_Badge_ModuleProfessional_PDP.png',
+    alt: 'EXIN Privacy & Data Protection Professional',
+    label: 'Privacy & Data Protection Professional',
+  },
+  {
+    src: '/images/Exin/EXIN_Badge_ModuleFoundation_InformationSM_ISO.png',
+    alt: 'EXIN Information Security Foundation',
+    label: 'Information Security Foundation',
+  },
+  {
+    src: '/images/Exin/EXIN_Badge_ModuleProfessional_InformationSM_ISO.png',
+    alt: 'EXIN Information Security Management Professional',
+    label: 'Information Security Management Professional',
   },
 ]
 
@@ -122,67 +93,79 @@ export default function ExinPage() {
         logoAlt="EXIN logo"
       />
 
-      <section className="py-16 bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-muted-foreground text-sm sm:text-base">
-            AI Governance, Data Protection, Security & Digital Transformation Certifications.
-          </p>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {exinHighlights.map((item) => (
-              <div key={item} className="rounded-2xl border border-border bg-card px-5 py-4 text-sm text-foreground">
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-[#F4FAFA]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl">
-              Program <span className="text-[#1BA098]">Logos</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {programLogos.map((logo) => (
-              <div key={logo.alt} className="bg-white rounded-xl border border-[#E4EFF0] shadow-sm p-3 flex items-center justify-center h-20">
-                <img src={logo.src} alt={logo.alt} className="max-h-12 w-auto object-contain" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="py-20 bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            {/* Left — Image */}
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[420px] lg:h-[500px]">
+              <img
+                src="/images/exin-team.png"
+                alt="EXIN Professional Training Team"
+                className="absolute inset-0 w-full h-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B7A8F]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
+                <p className="text-xs font-semibold uppercase tracking-widest text-white/70 mb-1">Trusted by professionals</p>
+                <p className="font-display font-bold text-xl leading-snug">
+                  AI Governance &amp; Digital Transformation Certifications
+                </p>
+              </div>
+            </div>
+
+            {/* Right — Text + Highlights */}
+            <div>
+              <span className="text-[#1BA098] font-semibold text-sm uppercase tracking-widest">About EXIN</span>
+              <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl mt-3 mb-4 text-balance">
+                Lead Digital Transformation{' '}
+                <span className="text-[#1BA098]">with Confidence</span>
+              </h2>
+              <p className="text-muted-foreground text-base leading-relaxed mb-8">
+                AI Governance, Data Protection, Security &amp; Digital Transformation Certifications — equipping professionals with the credentials to lead in the modern digital economy.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {exinHighlights.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-[#1BA098]/20 bg-[#0B7A8F]/5 px-5 py-4 text-sm text-foreground font-medium hover:border-[#1BA098]/50 hover:bg-[#0B7A8F]/10 transition-colors"
+                  >
+                    <span className="inline-block w-2 h-2 rounded-full bg-[#1BA098] mr-2 mb-0.5 align-middle" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* All Programme Logos */}
+      <section className="py-16 bg-[#F4FAFA]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl">
-              EXIN Programme Masterlist
+            <span className="text-[#1BA098] font-semibold text-sm uppercase tracking-widest">Certifications</span>
+            <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl mt-2">
+              Programme <span className="text-[#1BA098]">Logos</span>
             </h2>
+            <p className="text-muted-foreground text-sm sm:text-base mt-3">
+              Globally recognised EXIN certification badges.
+            </p>
           </div>
 
-          <div className="space-y-6">
-            {exinMasterlist.map((group) => (
-              <details key={group.category} className="group rounded-3xl border border-[#DCE6E6] bg-white shadow-[0_20px_40px_rgba(16,52,58,0.08)]">
-                <summary className="flex items-center justify-between cursor-pointer list-none px-6 py-5">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-[#7B8B8F]">Category</p>
-                    <p className="font-display font-bold text-foreground text-lg sm:text-xl">{group.category}</p>
-                  </div>
-                  <span className="h-9 w-9 rounded-full border border-[#E4EFF0] text-[#0B7A8F] flex items-center justify-center text-sm transition-transform group-open:rotate-180">˅</span>
-                </summary>
-                <div className="border-t border-[#E6EEF0] px-6 pb-6 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {group.programs.map((program) => (
-                    <div key={program.title} className="rounded-2xl border border-[#E6EEF0] bg-[#F7FBFB] px-4 py-3 flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-xl bg-white border border-[#DCE6E6] flex items-center justify-center">
-                        <img src={program.logo} alt={program.title} className="max-h-8 w-auto object-contain" />
-                      </div>
-                      <p className="text-sm text-foreground font-medium">{program.title}</p>
-                    </div>
-                  ))}
-                </div>
-              </details>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+            {programLogos.map((logo) => (
+              <div
+                key={logo.alt}
+                className="bg-white rounded-2xl border border-[#E4EFF0] shadow-sm p-4 flex flex-col items-center justify-center gap-3 text-center hover:shadow-lg hover:-translate-y-1 hover:border-[#1BA098]/40 transition-all duration-300 cursor-pointer"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-20 w-20 object-contain"
+                />
+                <p className="text-xs text-muted-foreground font-medium leading-snug">{logo.label}</p>
+              </div>
             ))}
           </div>
         </div>

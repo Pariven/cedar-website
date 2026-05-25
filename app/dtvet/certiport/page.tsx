@@ -7,10 +7,12 @@ import PageHero from '@/components/PageHero'
 const programGroups = [
   {
     body: 'Critical Career Skills',
+    logo: '/images/critical-career-skills-logo.png',
     programs: ['Generative AI Foundations'],
   },
   {
     body: 'Microsoft',
+    logo: '/images/Microsoft_White_Box.png',
     programs: [
       'Azure AI Fundamentals (AI-900)',
       'Azure Fundamentals (AZ-900)',
@@ -20,30 +22,37 @@ const programGroups = [
   },
   {
     body: 'Adobe',
+    logo: '/images/Exin/Picture2.png',
     programs: ['Illustrator', 'Photoshop'],
   },
   {
     body: 'Cisco',
+    logo: '/images/Cisco_Logo_no_TM_Sky_Blue-CMYK.png',
     programs: ['Cybersecurity'],
   },
   {
     body: 'Information Technology',
+    logo: '/images/IT-Specialist-Logo_PPT-Stacked.jpg',
     programs: ['Cybersecurity', 'Network Security', 'Python', 'Cloud Computing', 'Data Analytics', 'Artificial Intelligence'],
   },
   {
     body: 'Autodesk',
+    logo: '/images/Autodesk-logo-rgb-black.png',
     programs: ['AutoCAD'],
   },
   {
     body: 'WordPress',
+    logo: '/images/WORDPRESS.png',
     programs: ['WP Certified Developer', 'WP Certified Administrator'],
   },
   {
     body: 'Meta',
+    logo: '/images/META.png',
     programs: ['Associate Certification'],
   },
   {
     body: 'Medical Administrative Assistant',
+    logo: '/images/health-sciences-careers-cert-logo.png',
     programs: ['Medical Administrative Assistant Certification'],
   },
 ]
@@ -55,20 +64,18 @@ const certiportHighlights = [
 ]
 
 const certificationBodies = [
-  { src: '/images/image.png', alt: 'Pearson' },
-  { src: '/images/AWS.png', alt: 'AWS Training and Certification' },
-  { src: '/images/Vmware-by-broadcom.svg.png', alt: 'VMware by Broadcom' },
-  { src: '/images/comptia-logo-png_seeklogo-237177.png', alt: 'CompTIA' },
-  { src: '/images/ISC2-Logo-350x350.png', alt: 'ISC2' },
-  { src: '/images/ECC.png', alt: 'EC-Council' },
-  { src: '/images/Cisco_Logo_no_TM_Sky_Blue-CMYK.png', alt: 'Cisco' },
+  { src: '/images/critical-career-skills-logo.png', alt: 'Critical Career Skills' },
   { src: '/images/Microsoft_White_Box.png', alt: 'Microsoft' },
+  { src: '/images/Exin/Picture2.png', alt: 'Adobe' },
+  { src: '/images/Cisco_Logo_no_TM_Sky_Blue-CMYK.png', alt: 'Cisco' },
   { src: '/images/IT-Specialist-Logo_PPT-Stacked.jpg', alt: 'Information Technology Specialist' },
+  { src: '/images/Autodesk-logo-rgb-black.png', alt: 'Autodesk' },
+  { src: '/images/WORDPRESS.png', alt: 'WordPress' },
+  { src: '/images/META.png', alt: 'Meta' },
+  { src: '/images/health-sciences-careers-cert-logo.png', alt: 'Medical Administrative Assistant' },
 ]
 
 export default function CertiportPage() {
-  const programTiles = Array.from(new Set(programGroups.flatMap((group) => group.programs)))
-
   return (
     <>
       <Navbar />
@@ -107,7 +114,7 @@ export default function CertiportPage() {
             </div>
 
             <div className="grid gap-4">
-              <div className="rounded-2xl border border-[#1BA098]/30 bg-[#0B7A8F]/10 p-6">
+              <div className="rounded-2xl border border-[#1BA098]/30 bg-[#0B7A8F]/10 p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/60 transition-all duration-300 cursor-default">
                 <div className="flex items-center gap-3 mb-3">
                   <BadgeCheck size={20} className="text-[#1BA098]" />
                   <p className="text-sm font-semibold text-[#1BA098] uppercase tracking-widest">Authorized Testing Centre</p>
@@ -117,7 +124,7 @@ export default function CertiportPage() {
                   trusted proctoring.
                 </p>
               </div>
-              <div className="rounded-2xl border border-border bg-card p-6">
+              <div className="rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-default">
                 <div className="flex items-center gap-3 mb-3">
                   <Globe size={20} className="text-[#1BA098]" />
                   <p className="text-sm font-semibold text-foreground">Why Certiport</p>
@@ -134,6 +141,7 @@ export default function CertiportPage() {
         </div>
       </section>
 
+      {/* Certification Bodies Logos */}
       <section className="py-16 bg-[#F4FAFA]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
@@ -145,16 +153,16 @@ export default function CertiportPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4">
             {certificationBodies.map((logo) => (
               <div
                 key={logo.alt}
-                className="bg-white rounded-xl border border-[#E4EFF0] shadow-sm px-4 py-3 flex items-center justify-center h-20"
+                className="bg-white rounded-xl border border-[#E4EFF0] shadow-sm px-4 py-4 flex items-center justify-center h-24 hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-pointer"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className={`w-auto object-contain ${logo.alt === 'Information Technology Specialist' ? 'max-h-20' : ['CompTIA', 'Cisco'].includes(logo.alt) ? 'max-h-[100px]' : 'max-h-10'}`}
+                  className="max-h-14 w-auto object-contain"
                 />
               </div>
             ))}
@@ -162,6 +170,7 @@ export default function CertiportPage() {
         </div>
       </section>
 
+      {/* Certification Bodies & Programme Titles */}
       <section className="py-20 bg-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -175,19 +184,26 @@ export default function CertiportPage() {
             {programGroups.map((group) => (
               <div
                 key={group.body}
-                className="rounded-2xl border border-border bg-card p-6 flex flex-col lg:flex-row lg:items-start gap-6"
+                className="rounded-2xl border border-border bg-card p-6 flex flex-col lg:flex-row lg:items-start gap-6 hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-default"
               >
-                <div className="flex items-center gap-4 lg:w-[260px]">
-                  <div className="h-12 w-12 rounded-2xl bg-[#1BA098]/15 text-[#1BA098] flex items-center justify-center font-bold text-lg">
-                    {group.body[0]}
+                {/* Logo + Body Name */}
+                <div className="flex items-center gap-4 lg:w-[260px] lg:min-w-[260px]">
+                  <div className="h-14 w-14 rounded-xl border border-border bg-white flex items-center justify-center p-1 flex-shrink-0 shadow-sm">
+                    <img
+                      src={group.logo}
+                      alt={group.body}
+                      className="max-h-12 max-w-[48px] w-auto object-contain"
+                    />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-widest">Certification Body</p>
-                    <p className="font-semibold text-foreground text-base">{group.body}</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-widest font-medium">Certification Body</p>
+                    <p className="font-semibold text-foreground text-base leading-tight mt-0.5">{group.body}</p>
                   </div>
                 </div>
+
+                {/* Programme Titles */}
                 <div className="flex-1">
-                  <p className="text-xs text-muted-foreground uppercase tracking-widest">Programme Title</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-widest font-medium">Programme Title</p>
                   <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {group.programs.map((program) => (
                       <div

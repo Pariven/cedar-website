@@ -75,7 +75,7 @@ export default function PageHero({
           {logoSrc && (
             <div className={`flex-shrink-0 ${!imageSrc ? 'w-full md:flex-1 flex justify-center md:justify-end' : ''}`}>
               <div className={`rounded-3xl glass-card flex items-center justify-center p-6 md:p-8 ${!imageSrc ? 'w-full max-w-[320px] sm:max-w-sm aspect-video md:aspect-[4/3] shadow-2xl ring-1 ring-white/10' : 'w-40 h-40 md:w-48 md:h-48'}`}>
-                <img src={logoSrc} alt={logoAlt ?? ''} className="max-w-full max-h-full object-contain drop-shadow-lg" />
+                <img src={logoSrc} alt={logoAlt ?? ''} className="object-contain drop-shadow-lg" style={{height: '220px', width: 'auto'}} />
               </div>
             </div>
           )}

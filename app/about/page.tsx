@@ -8,7 +8,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 
-function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function FadeIn({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
@@ -17,6 +17,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay, ease: 'easeOut' }}
+      className={className}
     >
       {children}
     </motion.div>
@@ -152,9 +153,9 @@ export default function AboutPage() {
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-stretch">
             {partners.map((p, i) => (
-              <FadeIn key={p.title} delay={i * 0.1}>
-                <div className="flex flex-col items-center">
-                  <div className="relative rounded-2xl overflow-hidden w-full min-h-[360px] shadow-sm hover:shadow-2xl will-change-transform transform-gpu transition-transform duration-400 ease-out hover:-translate-y-2 hover:scale-105">
+              <FadeIn key={p.title} delay={i * 0.1} className="h-full">
+                <div className="flex flex-col h-full">
+                  <div className="relative rounded-2xl overflow-hidden w-full h-full min-h-[360px] shadow-sm hover:shadow-2xl will-change-transform transform-gpu transition-transform duration-400 ease-out hover:-translate-y-2 hover:scale-105">
                     <div
                       className="absolute inset-0 bg-center bg-cover"
                       style={{ backgroundImage: `url('${p.src}')` }}
