@@ -49,10 +49,10 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${navBg}`}
       style={{ backgroundColor: 'rgba(34,34,34,0.6)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' }}
     >
-      <div className="max-w-7xl mx-auto px-0">
-        <div className="flex items-center h-16 lg:h-20 relative" style={{paddingLeft: 0}}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 lg:h-20 relative">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0" style={{marginLeft: '-24px'}}>
+          <Link href="/" className="flex-shrink-0">
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CEDAR%20LOGO%20landscape-tYuS44ZfwiIQod6G73tO4SPsLrsKQT.png"
               alt="Cedar Tech Training"
