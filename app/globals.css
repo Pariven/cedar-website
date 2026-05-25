@@ -242,68 +242,35 @@
   z-index: 99999 !important;
 }
 
-/* Active nav pill design: rounded pill with soft gloss and curved underline */
-.nav-pill {
+/* Navbar Link Underline Animation */
+.nav-link-item {
   position: relative;
-  display: inline-block;
-  padding-left: 0.5rem; /* match base spacing */
-  padding-right: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.75rem; /* room for underline */
-  border-radius: 0; /* remove pill rounding */
-  background: transparent; /* no background */
-  box-shadow: none;
 }
 
-.nav-pill::after {
+.nav-link-item::after {
   content: '';
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  bottom: 0.35rem;
-  width: calc(100% - 1rem);
+  bottom: 0.25rem;
+  width: 0;
   height: 3px;
   background: var(--teal-light);
   border-radius: 9999px;
-}
-
-/* Mobile variant: keep same underline without pill shape */
-.nav-pill.mobile {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.75rem;
-}
-
-.nav-pill.mobile::after {
-  content: '';
-  position: absolute;
-  left: 50%;
   transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+.nav-link-item:hover::after,
+.nav-link-item.active::after {
+  width: calc(100% - 1.5rem);
+}
+
+.nav-link-item.mobile::after {
   bottom: 0.35rem;
-  width: calc(100% - 1.25rem);
-  height: 3px;
-  background: var(--teal-light);
-  border-radius: 9999px;
 }
 
-/* Stronger override to beat legacy/compiled rules */
-.liquid-nav .nav-pill {
-  background: transparent !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-}
-
-.liquid-nav .nav-pill::after {
-  content: '' !important;
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  bottom: 0.35rem !important;
-  width: calc(100% - 1rem) !important;
-  height: 3px !important;
-  background: var(--teal-light) !important;
-  border-radius: 9999px !important;
+.nav-link-item.mobile:hover::after,
+.nav-link-item.mobile.active::after {
+  width: calc(100% - 2rem);
 }

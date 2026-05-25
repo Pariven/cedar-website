@@ -67,9 +67,9 @@ export default function Navbar() {
                 link.href === '/'
                   ? pathname === '/'
                   : pathname === link.href || pathname.startsWith(`${link.href}/`)
-              const base = 'px-3 py-2 rounded-md text-base lg:text-sm font-semibold transition-all duration-200 whitespace-nowrap border-b-2 border-transparent pb-1 inline-flex items-center gap-1'
-              const activeCls = 'nav-pill text-white font-semibold'
-              const inactiveCls = 'text-white/95 hover:text-white hover:bg-white/4 hover:border-[#3DC2B8]'
+              const base = 'nav-link-item px-3 py-2 rounded-lg text-base lg:text-sm font-semibold transition-all duration-300 whitespace-nowrap inline-flex items-center gap-1'
+              const activeCls = 'active text-white bg-white/5'
+              const inactiveCls = 'text-white/90 hover:text-white hover:bg-white/10'
 
               if (link.children) {
                 return (
@@ -136,9 +136,9 @@ export default function Navbar() {
                 link.href === '/'
                   ? pathname === '/'
                   : pathname === link.href || pathname.startsWith(`${link.href}/`)
-              const mobileBase = 'px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200'
-              const mobileActive = 'nav-pill mobile text-white font-semibold'
-              const mobileInactive = 'text-white/90 hover:text-white hover:bg-white/5'
+              const mobileBase = 'nav-link-item mobile px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 relative'
+              const mobileActive = 'active text-white font-semibold bg-white/5'
+              const mobileInactive = 'text-white/90 hover:text-white hover:bg-white/10'
               const childBase = 'px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200'
 
               if (link.children) {
