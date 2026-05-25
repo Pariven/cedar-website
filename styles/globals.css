@@ -134,7 +134,7 @@
   border-bottom: 1px solid rgba(0,0,0,0.18);
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .liquid-nav::before {
   /* very soft highlights to keep a subtle liquid feel */

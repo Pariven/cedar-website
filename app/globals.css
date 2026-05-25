@@ -113,7 +113,7 @@
   backdrop-filter: blur(10px) saturate(120%);
   box-shadow: none;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .liquid-nav::before {
   /* very soft highlights to keep a subtle liquid feel */
@@ -154,6 +154,27 @@
 .marquee-item {
   display: inline-block;
 }
+
+/* Smooth dropdown for Pearson course list */
+.course-accordion > summary {
+  list-style: none;
+}
+.course-accordion > summary::-webkit-details-marker {
+  display: none;
+}
+.course-accordion > .course-accordion-content {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  overflow: hidden;
+  transition: max-height 420ms ease, opacity 220ms ease, transform 420ms ease;
+}
+.course-accordion[open] > .course-accordion-content {
+  max-height: 1400px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 /* Fixed hero background used on the homepage */
 .hero-fixed-bg {
