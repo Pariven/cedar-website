@@ -22,7 +22,7 @@ const programGroups = [
   },
   {
     body: 'Adobe',
-    logo: '/images/Exin/Picture2.png',
+    logo: '/images/adobe-logo.png',
     programs: ['Illustrator', 'Photoshop'],
   },
   {
@@ -66,7 +66,7 @@ const certiportHighlights = [
 const certificationBodies = [
   { src: '/images/critical-career-skills-logo.png', alt: 'Critical Career Skills' },
   { src: '/images/Microsoft_White_Box.png', alt: 'Microsoft' },
-  { src: '/images/Exin/Picture2.png', alt: 'Adobe' },
+  { src: '/images/adobe-logo.png', alt: 'Adobe' },
   { src: '/images/Cisco_Logo_no_TM_Sky_Blue-CMYK.png', alt: 'Cisco' },
   { src: '/images/IT-Specialist-Logo_PPT-Stacked.jpg', alt: 'Information Technology Specialist' },
   { src: '/images/Autodesk-logo-rgb-black.png', alt: 'Autodesk' },

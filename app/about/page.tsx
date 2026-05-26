@@ -162,20 +162,23 @@ export default function AboutPage() {
                     />
                     <div className="absolute inset-0 bg-black/60" />
 
-                    {/* Watermark logo inside the card (semi-transparent) */}
-                    <div className="relative z-30 p-10 h-full flex flex-col justify-start items-center text-center text-white">
-                      {p.logo && (
-                        <img
-                          src={p.logo}
-                          alt={`${p.title} logo`}
-                          className={`mb-4 object-contain z-30 ${p.title.startsWith('OIPD') ? 'w-40 h-40' : p.title === 'ChangeabilityPro' ? 'w-44 h-44' : 'w-28 h-28'}`}
-                          onError={(e) => {
-                            const el = e.target as HTMLImageElement
-                            if (p.logoFallback) el.src = p.logoFallback
-                          }}
-                        />
-                      )}
-                      <p className="text-sm max-w-prose leading-relaxed mt-2">{p.desc}</p>
+                    {/* Content inside the card */}
+                    <div className="relative z-30 p-8 h-full flex flex-col justify-start items-center text-center text-white">
+                      {/* Fixed height logo container for perfect alignment */}
+                      <div className="h-48 w-full flex items-center justify-center mb-4 mt-2">
+                        {p.logo && (
+                          <img
+                            src={p.logo}
+                            alt={`${p.title} logo`}
+                            className={`object-contain ${p.title.startsWith('OIPD') ? 'w-48 h-48' : p.title === 'ChangeabilityPro' ? 'w-40 h-40' : 'w-32 h-32'}`}
+                            onError={(e) => {
+                              const el = e.target as HTMLImageElement
+                              if (p.logoFallback) el.src = p.logoFallback
+                            }}
+                          />
+                        )}
+                      </div>
+                      <p className="text-sm max-w-prose leading-relaxed flex-grow flex items-start">{p.desc}</p>
                     </div>
                   </div>
                 </div>

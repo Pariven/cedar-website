@@ -81,6 +81,8 @@ export default function LeadershipPage() {
         highlight="engage, and grow"
         description="Fully customisable, industry-proven programmes that enhance managerial confidence, deepen leadership understanding, and build the human skills that drive organisational excellence."
         breadcrumb={[{ label: 'Leadership & Soft Skills', href: '/leadership' }]}
+        logoSrc={'/images/ChatGPT Image May 25, 2026, 05_49_45 AM.png'}
+        logoAlt={'Cedar / Partner logo'}
       />
 
       {/* Overview */}

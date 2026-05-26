@@ -213,7 +213,7 @@
   background-image: url('/images/b368ae98-7f90-4b23-abbf-940b2aaab4c3.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center 40%;
   background-attachment: scroll; /* ensure it scrolls with the page */
   position: relative;
 }

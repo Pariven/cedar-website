@@ -51,6 +51,33 @@ function FadeIn({
   )
 }
 
+// ── Animated Counter ──────────────────────────────────────────────
+function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: string }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-50px' })
+
+  useEffect(() => {
+    if (inView) {
+      let start = 0
+      const duration = 2000
+      const increment = value / (duration / 16)
+      const timer = setInterval(() => {
+        start += increment
+        if (start >= value) {
+          setCount(value)
+          clearInterval(timer)
+        } else {
+          setCount(Math.floor(start))
+        }
+      }, 16)
+      return () => clearInterval(timer)
+    }
+  }, [inView, value])
+
+  return <span ref={ref}>{count}{suffix}</span>
+}
+
 // ── Offerings data ────────────────────────────────────────────────
 const offerings = [
   {
@@ -134,10 +161,10 @@ const carouselSlides = [
 
 // ── Why Cedar stats ───────────────────────────────────────────────
 const stats = [
-  { value: '10+', label: 'Years of Experience' },
-  { value: '5000+', label: 'Professionals Trained' },
-  { value: '100%', label: 'HRDC Claimable' },
-  { value: '5', label: 'Specialised Programmes' },
+  { value: 10, suffix: '+', label: 'Years of Experience' },
+  { value: 5000, suffix: '+', label: 'Professionals Trained' },
+  { value: 100, suffix: '%', label: 'HRDC Claimable' },
+  { value: 5, suffix: '', label: 'Specialised Programmes' },
 ]
 
 export default function HomePage() {
@@ -216,12 +243,19 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-3xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto"
           >
             {stats.map((stat) => (
-              <div key={stat.label} className="glass-card rounded-2xl px-4 py-5 text-center">
-                <p className="font-display font-bold text-white text-3xl">{stat.value}</p>
-                <p className="text-white/70 text-xs mt-1">{stat.label}</p>
+              <div 
+                key={stat.label} 
+                className="glass-card rounded-2xl p-6 sm:p-8 text-center border border-white/20 hover:border-white/40 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/10 transition-all duration-300 group"
+              >
+                <p className="font-display font-bold text-4xl sm:text-5xl text-white drop-shadow-md group-hover:scale-110 transition-transform duration-300">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </p>
+                <p className="text-white/80 text-sm font-medium mt-3 uppercase tracking-wide">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </motion.div>
@@ -446,7 +480,7 @@ export default function HomePage() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className={`${logo.alt === 'Custom Logo' ? 'h-30' : 'h-12'} w-auto object-contain opacity-100`}
+                  className={`${logo.alt === 'Custom Logo' ? 'h-32' : 'h-12'} w-auto object-contain opacity-100`}
                 />
               </FadeIn>
             ))}
@@ -455,7 +489,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA BANNER ────────────────────────────────────── */}
-      <section className="py-20 bg-[#E4F2F1]">
+      <section className="mt-20 py-20 bg-[#E4F2F1]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <h2 className="font-display font-bold text-[#1E3A3F] text-3xl sm:text-4xl lg:text-5xl mb-5 text-balance">

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { ChevronDown, CheckCircle2, Clock, CreditCard, BadgeCheck, ArrowRight } from 'lucide-react'
+import { ChevronDown, CheckCircle2, Clock, CreditCard, BadgeCheck, ArrowRight, Lightbulb, RefreshCw, Compass } from 'lucide-react'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -27,8 +27,9 @@ const programs = [
   {
     id: 1,
     title: 'Change Management Essentials',
-    badge: 'Option 1',
-    badgeColor: 'bg-[#1BA098]',
+    icon: Lightbulb,
+    iconColor: 'text-[#1BA098]',
+    iconBg: 'bg-[#1BA098]/15',
     description:
       'Change Management essentials is a dynamic, hands-on program designed to introduce you to the essential tools and strategies needed to thrive in today\'s fast-evolving workplace.',
     outcomes: [
@@ -45,8 +46,9 @@ const programs = [
   {
     id: 2,
     title: 'Embracing Organizational Change',
-    badge: 'Option 2',
-    badgeColor: 'bg-[#3DC2B8]',
+    icon: RefreshCw,
+    iconColor: 'text-[#3DC2B8]',
+    iconBg: 'bg-[#3DC2B8]/15',
     description:
       'Embracing Organizational Change is your next step in mastering the art of leading transformation. This fast-paced, hands-on program dives deep into the real-world tools and strategies you need to crush complex change initiatives.',
     outcomes: [
@@ -63,8 +65,9 @@ const programs = [
   {
     id: 3,
     title: 'The Leadership Compass: Guiding Teams Through Change',
-    badge: 'Option 3',
-    badgeColor: 'bg-[#7ED957]',
+    icon: Compass,
+    iconColor: 'text-[#7ED957]',
+    iconBg: 'bg-[#7ED957]/15',
     description:
       'This program is designed to empower leaders and change practitioners with the advanced skills and strategies needed to navigate complex change environments, foster innovation, and drive sustainable transformation.',
     outcomes: [
@@ -91,9 +94,9 @@ function ProgramCard({ program, index }: { program: (typeof programs)[0]; index:
           aria-expanded={open}
         >
           <div className="flex items-center gap-4">
-            <span className={`px-3 py-1 rounded-full text-white text-xs font-semibold ${program.badgeColor}`}>
-              {program.badge}
-            </span>
+            <div className={`w-12 h-12 flex-shrink-0 rounded-2xl flex items-center justify-center ${program.iconBg} ${program.iconColor}`}>
+              <program.icon size={24} />
+            </div>
             <h3 className="font-display font-bold text-foreground text-lg">{program.title}</h3>
           </div>
           <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.3 }}>
@@ -176,8 +179,6 @@ export default function ChangeManagementPage() {
         highlight="Transform"
         description="A comprehensive three-part series by certified change management trainers helping professionals understand, embrace, and lead change effectively."
         breadcrumb={[{ label: 'Change Management', href: '/change-management' }]}
-        logoSrc={'/images/ChatGPT Image May 25, 2026, 05_49_45 AM.png'}
-        logoAlt={'Cedar / Partner logo'}
       />
 
       {/* Intro Section */}
@@ -210,20 +211,45 @@ export default function ChangeManagementPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
             {[
-              { label: 'Essentials', sub: 'For change beginners', color: '#1BA098' },
-              { label: 'Embracing Change', sub: 'For change practitioners', color: '#3DC2B8' },
-              { label: 'Leadership Compass', sub: 'For change leaders', color: '#7ED957' },
+              {
+                label: 'Essentials',
+                sub: 'For change beginners',
+                color: '#1BA098',
+                img: '/images/about-vision-background.jpg',
+              },
+              {
+                label: 'Embracing Change',
+                sub: 'For change practitioners',
+                color: '#3DC2B8',
+                img: '/images/office.jpg',
+              },
+              {
+                label: 'Leadership Compass',
+                sub: 'For change leaders',
+                color: '#7ED957',
+                img: '/images/leadership-background.jpg',
+              },
             ].map((step, i) => (
               <FadeIn key={step.label} delay={i * 0.1}>
-                <div className="text-center p-6 rounded-2xl border border-border bg-card">
+                <div className="relative rounded-2xl overflow-hidden h-52 shadow-lg group">
+                  {/* Background image */}
+                  <img
+                    src={step.img}
+                    alt={step.label}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Gradient overlay */}
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4"
-                    style={{ background: step.color }}
-                  >
-                    {i + 1}
+                    className="absolute inset-0"
+                    style={{
+                      background: `linear-gradient(to top, ${step.color}E6 0%, ${step.color}80 50%, transparent 100%)`,
+                    }}
+                  />
+                  {/* Text content */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-end p-6 text-center">
+                    <h3 className="font-display font-bold text-white text-lg leading-tight">{step.label}</h3>
+                    <p className="text-white/85 text-sm mt-1">{step.sub}</p>
                   </div>
-                  <h3 className="font-display font-bold text-foreground text-base">{step.label}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">{step.sub}</p>
                 </div>
               </FadeIn>
             ))}
