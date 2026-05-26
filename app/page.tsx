@@ -154,7 +154,7 @@ const carouselSlides = [
     subtitle: 'Internationally accredited programmes with the Oxbridge Institute of Professional Development',
     tag: 'Global Accreditation',
     logo: '/images/ChatGPT Image May 25, 2026, 05_49_45 AM.png',
-    href: '/about',
+    href: '/leadership',
     bg: 'from-[#1E3A3F] to-[#0B7A8F]',
   },
 ]
