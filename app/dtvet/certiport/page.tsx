@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, BadgeCheck, CheckCircle2, Globe } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Globe } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
@@ -115,15 +115,12 @@ export default function CertiportPage() {
             </div>
 
             <div className="grid gap-4">
-              <div className="rounded-2xl border border-[#1BA098]/30 bg-[#0B7A8F]/10 p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/60 transition-all duration-300 cursor-default">
-                <div className="flex items-center gap-3 mb-3">
-                  <BadgeCheck size={20} className="text-[#1BA098]" />
-                  <p className="text-sm font-semibold text-[#1BA098] uppercase tracking-widest">Authorized Testing Centre</p>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Cedar Tech Training is an authorized Certiport testing centre, providing exam delivery, preparation support, and
-                  trusted proctoring.
-                </p>
+              <div className="rounded-2xl border border-border bg-card p-6 flex items-center justify-center hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-default min-h-[180px]">
+                <img 
+                  src="/images/centiport authorized logo.jpg" 
+                  alt="Certiport Authorized Testing Center" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-default">
                 <div className="flex items-center gap-3 mb-3">
@@ -143,7 +140,7 @@ export default function CertiportPage() {
       </section>
 
       {/* Certification Bodies Logos */}
-      <section className="py-16 bg-[#F4FAFA]">
+      <section className="py-16 bg-[#F4FAFA] overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl">
@@ -153,20 +150,34 @@ export default function CertiportPage() {
               Globally recognised certifications from leading technology brands.
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4">
-            {certificationBodies.map((logo) => (
-              <div
-                key={logo.alt}
-                className="bg-white rounded-xl border border-[#E4EFF0] shadow-sm px-4 py-4 flex items-center justify-center h-24 hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-pointer"
-              >
+        {/* Infinite scroll carousel */}
+        <div className="relative w-full">
+          <style>{`
+            @keyframes scroll-logos {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .logos-track {
+              animation: scroll-logos 22s linear infinite;
+            }
+            .logos-track:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+
+          <div className="flex overflow-hidden">
+            <div className="logos-track flex gap-12 w-max items-center">
+              {[...certificationBodies, ...certificationBodies].map((logo, i) => (
                 <img
+                  key={`${logo.alt}-${i}`}
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-14 w-auto object-contain"
+                  className="object-contain max-h-20 max-w-[160px] w-auto flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
                 />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

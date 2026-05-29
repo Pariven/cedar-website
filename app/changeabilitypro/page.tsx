@@ -8,12 +8,13 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 
-function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function FadeIn({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
     <motion.div
       ref={ref}
+      className={className}
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay, ease: 'easeOut' }}
@@ -29,42 +30,42 @@ const features = [
     title: 'AI Coach',
     desc: 'Get practical change advice powered by AI. The coach draws on the platform\'s Neurohacks, expert knowledge and published books to provide reliable, actionable guidance.',
     color: '#0B7A8F',
-    bg: '#0B7A8F15',
+    cardStyle: { background: 'linear-gradient(135deg, #0B7A8F 0%, #1BA098 100%)' },
   },
   {
     icon: Search,
     title: 'Explore and Search',
     desc: 'Explore everything on the platform in one place. Smart recommendations adapt to your interests over time, while powerful search helps you quickly find the tools and insights you need.',
     color: '#1BA098',
-    bg: '#1BA09815',
+    cardStyle: { background: 'linear-gradient(135deg, #1BA098 0%, #3DC2B8 100%)' },
   },
   {
     icon: Zap,
     title: 'Neurohacks',
     desc: 'Discover the Neurohacks most relevant to you. Recommendations adapt to your watch and search history, while the latest releases keep you up to date with new techniques.',
     color: '#3DC2B8',
-    bg: '#3DC2B815',
+    cardStyle: { background: 'linear-gradient(135deg, #3DC2B8 0%, #5aaa34 100%)' },
   },
   {
     icon: Route,
     title: 'Practical Pathways',
     desc: 'Explore curated learning pathways that group Neurohacks around key change topics. Follow a structured sequence from fundamentals to advanced techniques.',
     color: '#7ED957',
-    bg: '#7ED95715',
+    cardStyle: { background: 'linear-gradient(135deg, #5aaa34 0%, #7ED957 100%)' },
   },
   {
     icon: Library,
     title: 'Resources',
     desc: 'Access a growing library of resources including research, templates and supporting materials for our Neurohacks. Powerful search and tabs help you quickly find what you need.',
     color: '#A7D948',
-    bg: '#A7D94815',
+    cardStyle: { background: 'linear-gradient(135deg, #7aab28 0%, #A7D948 100%)' },
   },
   {
     icon: CalendarDays,
     title: 'Events',
     desc: 'Find upcoming events, from free member sessions to specialist courses. View them in the calendar, access recordings from past events, and manage the events you\'re booked onto.',
     color: '#0B7A8F',
-    bg: '#0B7A8F15',
+    cardStyle: { background: 'linear-gradient(135deg, #0B4A52 0%, #0B7A8F 100%)' },
   },
 ]
 
@@ -164,18 +165,26 @@ export default function ChangeabilityProPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => (
-              <FadeIn key={f.title} delay={i * 0.1}>
+              <FadeIn key={f.title} delay={i * 0.1} className="h-full">
                 <div
-                  className="group p-7 rounded-2xl border border-border bg-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  className="group relative p-7 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden h-full flex flex-col"
+                  style={f.cardStyle}
                 >
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
-                    style={{ background: f.bg }}
-                  >
-                    <f.icon size={26} style={{ color: f.color }} />
+                  {/* Decorative faded background icon */}
+                  <div className="absolute -top-4 -right-4 p-4 opacity-10 group-hover:scale-125 transition-transform duration-500 pointer-events-none">
+                    <f.icon size={120} className="text-white" />
                   </div>
-                  <h3 className="font-display font-bold text-foreground text-lg mb-2">{f.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{f.desc}</p>
+                  
+                  {/* Icon box */}
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-white/20 backdrop-blur-sm group-hover:scale-110 transition-transform duration-300 relative z-10"
+                  >
+                    <f.icon size={26} className="text-white" />
+                  </div>
+                  
+                  {/* Text */}
+                  <h3 className="font-display font-bold text-white text-xl mb-2 relative z-10">{f.title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed relative z-10">{f.desc}</p>
                 </div>
               </FadeIn>
             ))}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Globe, Briefcase, BookOpen, BadgeCheck } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
@@ -10,18 +10,30 @@ const highlightCards = [
   {
     title: 'Globally Recognised',
     desc: 'Recognised by employers worldwide.',
+    icon: Globe,
+    color: '#1BA098',
+    gradient: 'linear-gradient(135deg, #0B7A8F 0%, #1BA098 100%)',
   },
   {
     title: 'Industry-recognised',
     desc: 'Aligned to real-world digital job roles.',
+    icon: Briefcase,
+    color: '#3DC2B8',
+    gradient: 'linear-gradient(135deg, #1BA098 0%, #3DC2B8 100%)',
   },
   {
     title: 'Flexible Learning',
     desc: 'Self-paced online learning with hands-on practice.',
+    icon: BookOpen,
+    color: '#7ED957',
+    gradient: 'linear-gradient(135deg, #5aaa34 0%, #7ED957 100%)',
   },
   {
     title: '100% HRD Corp Claimable',
     desc: 'Suitable for workforce upskilling initiatives.',
+    icon: BadgeCheck,
+    color: '#A7D948',
+    gradient: 'linear-gradient(135deg, #7aab28 0%, #A7D948 100%)',
   },
 ]
 
@@ -274,32 +286,79 @@ export default function PearsonPage() {
         logoAlt="Pearson logo"
       />
 
+      {/* Future-Ready Professional Certifications — Bento Grid */}
       <section className="py-16 bg-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl">
-              Future-Ready <span className="text-[#F5B63A]">Professional</span> Certifications
+          {/* Title */}
+          <div className="text-center mb-10">
+            <span className="text-[#1BA098] font-semibold text-sm uppercase tracking-widest">Pearson VUE</span>
+            <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl mt-2 text-balance">
+              Future-Ready <span className="text-[#1BA098]">Professional</span> Certifications
             </h2>
-            <p className="text-muted-foreground text-sm sm:text-base mt-3">
-              Industry-recognised programs designed for real-world digital job roles.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
-            {highlightCards.map((card) => (
-              <div
-                key={card.title}
-                className="rounded-2xl border border-border bg-card px-6 py-5 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-default"
-              >
-                <p className="font-semibold text-foreground text-sm">{card.title}</p>
-                <p className="text-muted-foreground text-xs mt-2">{card.desc}</p>
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Card 1 — Large, spans 2 rows */}
+            <div
+              className="lg:row-span-2 rounded-3xl p-8 flex flex-col justify-between min-h-[260px] hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
+              style={{ background: 'linear-gradient(135deg, #0B7A8F 0%, #1BA098 100%)' }}
+            >
+              <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
+                <Globe size={28} className="text-white" />
               </div>
-            ))}
+              <div>
+                <p className="font-display font-bold text-white text-xl mb-2">{highlightCards[0].title}</p>
+                <p className="text-white/75 text-sm leading-relaxed">{highlightCards[0].desc}</p>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div
+              className="rounded-3xl p-7 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
+              style={{ background: 'linear-gradient(135deg, #3DC2B8 0%, #56d4ca 100%)' }}
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-4">
+                <Briefcase size={22} className="text-white" />
+              </div>
+              <div>
+                <p className="font-display font-bold text-white text-lg mb-1">{highlightCards[1].title}</p>
+                <p className="text-white/75 text-sm leading-relaxed">{highlightCards[1].desc}</p>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div
+              className="rounded-3xl p-7 flex flex-col justify-between hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
+              style={{ background: 'linear-gradient(135deg, #5aaa34 0%, #7ED957 100%)' }}
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-4">
+                <BookOpen size={22} className="text-white" />
+              </div>
+              <div>
+                <p className="font-display font-bold text-white text-lg mb-1">{highlightCards[2].title}</p>
+                <p className="text-white/75 text-sm leading-relaxed">{highlightCards[2].desc}</p>
+              </div>
+            </div>
+
+            {/* Card 4 — Wide, spans 2 cols */}
+            <div
+              className="sm:col-span-2 lg:col-span-2 rounded-3xl p-7 flex flex-col sm:flex-row items-center gap-6 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
+              style={{ background: 'linear-gradient(135deg, #7aab28 0%, #A7D948 100%)' }}
+            >
+              <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                <BadgeCheck size={28} className="text-white" />
+              </div>
+              <div>
+                <p className="font-display font-bold text-white text-xl mb-1">{highlightCards[3].title}</p>
+                <p className="text-white/75 text-sm leading-relaxed">{highlightCards[3].desc}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-[#F4FAFA]">
+      <section className="py-16 bg-[#F4FAFA] overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl">
@@ -309,20 +368,34 @@ export default function PearsonPage() {
               Globally recognised certifications from leading technology brands.
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {certificationBodies.map((logo) => (
-              <div
-                key={logo.alt}
-                className="bg-white rounded-2xl border border-[#E4EFF0] shadow-sm px-5 py-5 flex items-center justify-center h-28 hover:-translate-y-1 hover:shadow-lg hover:border-[#1BA098]/40 transition-all duration-300 cursor-pointer"
-              >
+        {/* Infinite scroll carousel */}
+        <div className="relative w-full">
+          <style>{`
+            @keyframes scroll-logos {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .logos-track {
+              animation: scroll-logos 22s linear infinite;
+            }
+            .logos-track:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+
+          <div className="flex overflow-hidden">
+            <div className="logos-track flex gap-12 w-max items-center">
+              {[...certificationBodies, ...certificationBodies].map((logo, i) => (
                 <img
+                  key={`${logo.alt}-${i}`}
                   src={logo.src}
                   alt={logo.alt}
-                  className={`object-contain ${logo.imgClass}`}
+                  className="object-contain max-h-20 max-w-[160px] w-auto flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
                 />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

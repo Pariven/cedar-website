@@ -248,7 +248,7 @@ export default function ChangeManagementPage() {
                   {/* Text content */}
                   <div className="absolute inset-0 flex flex-col items-center justify-end p-6 text-center">
                     <h3 className="font-display font-bold text-white text-lg leading-tight">{step.label}</h3>
-                    <p className="text-white/85 text-sm mt-1">{step.sub}</p>
+                    <p className="text-white text-sm mt-1 font-bold">{step.sub}</p>
                   </div>
                 </div>
               </FadeIn>

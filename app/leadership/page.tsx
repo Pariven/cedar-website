@@ -29,36 +29,43 @@ const modules = [
     title: 'Managerial Confidence & Role Clarity',
     desc: 'Enhance managers\' confidence and deepen their understanding of their responsibilities within the organisation.',
     color: '#0B7A8F',
+    cardBg: 'bg-[#0B7A8F]',
+    cardStyle: { background: 'linear-gradient(135deg, #0B7A8F 0%, #0d8fa6 100%)' },
   },
   {
     icon: Heart,
     title: 'Positive Psychology & Mental Wellness',
     desc: 'Strong emphasis on building psychological resilience, mental wellness, and a positive growth mindset for sustainable leadership.',
     color: '#1BA098',
+    cardStyle: { background: 'linear-gradient(135deg, #1BA098 0%, #22bfb5 100%)' },
   },
   {
     icon: Users,
     title: 'Team Building & Collaboration',
     desc: 'Practical tools and frameworks for building high-performing, cohesive teams that collaborate effectively across functions.',
     color: '#3DC2B8',
+    cardStyle: { background: 'linear-gradient(135deg, #3DC2B8 0%, #56d4ca 100%)' },
   },
   {
     icon: Lightbulb,
     title: 'Creative Problem Solving',
     desc: 'Equip leaders with creative thinking methodologies and problem-solving frameworks for complex organisational challenges.',
     color: '#7ED957',
+    cardStyle: { background: 'linear-gradient(135deg, #5aaa34 0%, #7ED957 100%)' },
   },
   {
     icon: Star,
     title: 'Effective Communication',
     desc: 'Develop impactful communication skills including active listening, constructive feedback, and influencing without authority.',
     color: '#A7D948',
+    cardStyle: { background: 'linear-gradient(135deg, #7aab28 0%, #A7D948 100%)' },
   },
   {
     icon: Shield,
     title: 'Conflict Resolution & Resilience',
     desc: 'Build capacity to handle workplace conflict constructively and lead teams through adversity with strength and composure.',
-    color: '#0B7A8F',
+    color: '#1E3A3F',
+    cardStyle: { background: 'linear-gradient(135deg, #1E3A3F 0%, #255059 100%)' },
   },
 ]
 
@@ -144,15 +151,17 @@ export default function LeadershipPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {modules.map((m, i) => (
               <FadeIn key={m.title} delay={i * 0.1}>
-                <div className="group p-7 rounded-2xl border border-border bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
+                <div
+                  className="group p-7 rounded-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full"
+                  style={m.cardStyle}
+                >
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
-                    style={{ background: `${m.color}15` }}
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform bg-white/20"
                   >
-                    <m.icon size={26} style={{ color: m.color }} />
+                    <m.icon size={26} className="text-white" />
                   </div>
-                  <h3 className="font-display font-bold text-foreground text-lg mb-2">{m.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{m.desc}</p>
+                  <h3 className="font-display font-bold text-white text-lg mb-2">{m.title}</h3>
+                  <p className="text-white/85 text-sm leading-relaxed">{m.desc}</p>
                 </div>
               </FadeIn>
             ))}
