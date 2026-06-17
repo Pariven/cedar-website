@@ -8,14 +8,14 @@ import PageHero from '@/components/PageHero'
 
 const highlightCards = [
   {
-    title: 'Globally Recognised',
-    desc: 'Recognised by employers worldwide.',
+    title: 'Globally Recognized',
+    desc: 'Recognized by employers worldwide.',
     icon: Globe,
     color: '#1BA098',
     gradient: 'linear-gradient(135deg, #0B7A8F 0%, #1BA098 100%)',
   },
   {
-    title: 'Industry-recognised',
+    title: 'Industry-recognized',
     desc: 'Aligned to real-world digital job roles.',
     icon: Briefcase,
     color: '#3DC2B8',
@@ -365,7 +365,7 @@ export default function PearsonPage() {
               Certification <span className="text-[#1BA098]">Bodies</span>
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base mt-3">
-              Globally recognised certifications from leading technology brands.
+              Globally recognized certifications from leading technology brands.
             </p>
           </div>
         </div>

@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     'Cedar Tech Training builds and elevates human capital development, aligning industry needs with future trends. Explore our programmes in Change Management, ChangeabilityPro, ELSA, DTVET, and Leadership.',
   keywords: 'Cedar Tech Training, change management, ELSA, DTVET, ChangeabilityPro, leadership training, Malaysia',
   generator: 'v0.app',
+  icons: {
+    icon: '/CEDAR LOGO favicon.png',
+    shortcut: '/CEDAR LOGO favicon.png',
+    apple: '/CEDAR LOGO favicon.png',
+  },
 }
 
 export default function RootLayout({

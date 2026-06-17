@@ -35,7 +35,7 @@ const partners = [
     src: '/images/b368ae98-7f90-4b23-abbf-940b2aaab4c3.png',
     logo: '/images/ChatGPT Image May 25, 2026, 05_49_45 AM.png',
     title: 'OIPD - Oxbridge Institute of Professional Development',
-    desc: 'International accreditation partner providing globally recognised credentials for our leadership and management programmes.',
+    desc: 'International accreditation partner providing globally recognized credentials for our leadership and management programmes.',
   },
   {
     // Use the uploaded image file for Changeability background

@@ -149,7 +149,7 @@ export default function ExinPage() {
               Programme <span className="text-[#1BA098]">Logos</span>
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base mt-3">
-              Globally recognised EXIN certification badges.
+              Globally recognized EXIN certification badges.
             </p>
           </div>
 

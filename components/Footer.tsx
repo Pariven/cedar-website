@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1E3A3F] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
             <img
@@ -92,7 +92,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter - Hidden for now
           <div>
             <h3 className="font-semibold text-[#3DC2B8] text-sm uppercase tracking-widest mb-4">
               Stay Updated
@@ -114,6 +114,7 @@ export default function Footer() {
               </button>
             </form>
           </div>
+          */}
         </div>
 
         <div className="border-t border-white/15 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">

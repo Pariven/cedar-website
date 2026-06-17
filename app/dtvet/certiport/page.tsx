@@ -147,7 +147,7 @@ export default function CertiportPage() {
               Certification <span className="text-[#1BA098]">Bodies</span>
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base mt-3">
-              Globally recognised certifications from leading technology brands.
+              Globally recognized certifications from leading technology brands.
             </p>
           </div>
         </div>

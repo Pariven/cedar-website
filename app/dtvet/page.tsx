@@ -68,7 +68,7 @@ const highlights = [
   '100% HRDC claimable for eligible organisations',
   'Flexible delivery: physical, online, or blended',
   'Hands-on, practical skill-based learning',
-  'Recognised certifications and credentials',
+  'Recognized certifications and credentials',
 ]
 
 export default function DtvetPage() {
