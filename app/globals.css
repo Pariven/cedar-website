@@ -1,0 +1,276 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Cedar Tech Training Brand Colors */
+  --background: oklch(0.985 0.005 195);       /* #F8FAFA off-white */
+  --foreground: oklch(0.22 0.04 195);          /* #1E3A3F dark slate */
+  --card: oklch(1 0 0);                        /* white */
+  --card-foreground: oklch(0.22 0.04 195);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 195);
+  --primary: oklch(0.58 0.1 195);              /* #1BA098 turquoise */
+  --primary-foreground: oklch(1 0 0);          /* white */
+  --primary-dark: oklch(0.5 0.1 210);          /* #0B7A8F deep teal */
+  --primary-light: oklch(0.7 0.1 190);         /* #3DC2B8 bright turquoise */
+  --secondary: oklch(0.75 0.15 155);           /* #7ED957 lime green */
+  --secondary-foreground: oklch(0.22 0.04 195);
+  --muted: oklch(0.95 0.015 195);              /* very light teal tint */
+  --muted-foreground: oklch(0.45 0.04 195);
+  --accent: oklch(0.75 0.15 155);              /* #7ED957 lime green */
+  --accent-foreground: oklch(0.22 0.04 195);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.03 195);
+  --input: oklch(0.92 0.02 195);
+  --ring: oklch(0.58 0.1 195);
+  --radius: 0.75rem;
+
+  /* Extra brand tokens */
+  --teal-dark: #0B7A8F;
+  --teal: #1BA098;
+  --teal-light: #3DC2B8;
+  --lime: #7ED957;
+  --lime-muted: #A7D948;
+  --slate-dark: #1E3A3F;
+  --slate-light: #2C5260;
+  --off-white: #F8FAFA;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-outfit);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Gradient utilities */
+.gradient-teal {
+  background: linear-gradient(135deg, #0B7A8F 0%, #1BA098 50%, #3DC2B8 100%);
+}
+.gradient-teal-lime {
+  background: linear-gradient(135deg, #0B7A8F 0%, #1BA098 60%, #7ED957 100%);
+}
+.gradient-text {
+  background: linear-gradient(135deg, #0B7A8F, #3DC2B8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.glass-card-dark {
+  background: rgba(11, 122, 143, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(61, 194, 184, 0.25);
+}
+
+/* Navbar styling (copied from styles/globals.css) to ensure Next.js loads it */
+.liquid-nav {
+  /* semi-transparent grey navbar with subtle blur */
+  background-color: rgba(34,34,34,0.60); /* grey, 60% opacity */
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  backdrop-filter: blur(10px) saturate(120%);
+  box-shadow: none;
+  position: relative;
+  overflow: visible;
+}
+.liquid-nav::before {
+  /* very soft highlights to keep a subtle liquid feel */
+  content: '';
+  position: absolute;
+  inset: -25% -25%;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.02), transparent 12%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.015), transparent 18%);
+  filter: blur(10px);
+  animation: liquidFloat 14s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.22;
+}
+@keyframes liquidFloat {
+  0% { transform: translateX(-8%) translateY(0) rotate(0deg); }
+  50% { transform: translateX(8%) translateY(2%) rotate(1.5deg); }
+  100% { transform: translateX(-8%) translateY(0) rotate(0deg); }
+}
+
+/* marquee animation for partners strip */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  will-change: transform;
+  animation: marqueeScroll 20s linear infinite;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+.marquee-item {
+  display: inline-block;
+}
+
+/* Smooth dropdown for Pearson course list */
+.course-accordion > summary {
+  list-style: none;
+}
+.course-accordion > summary::-webkit-details-marker {
+  display: none;
+}
+.course-accordion > .course-accordion-content {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  overflow: hidden;
+  transition: max-height 420ms ease, opacity 220ms ease, transform 420ms ease;
+}
+.course-accordion[open] > .course-accordion-content {
+  max-height: 1400px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Fixed hero background used on the homepage */
+.hero-fixed-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url('/images/b368ae98-7f90-4b23-abbf-940b2aaab4c3.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: saturate(105%);
+}
+.hero-fixed-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,122,143,0.75), rgba(29,58,63,0.6));
+}
+
+/* Sticky partners strip pinned under the navbar */
+.partners-sticky {
+  position: sticky;
+  top: 72px; /* leave space for fixed navbar */
+  z-index: 60;
+}
+
+/* Ensure partners area doesn't overlap content visually */
+.partners-sticky > .max-w-7xl {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Parallax background layer for partners section */
+.partners-bg {
+  /* Static hero image background for the partners strip (no animation) */
+  background-image: url('/images/b368ae98-7f90-4b23-abbf-940b2aaab4c3.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: scroll; /* ensure it scrolls with the page */
+  position: relative;
+}
+/* subtle dark overlay for better logo contrast (adjust opacity below) */
+.partners-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45); /* darker overlay — adjusted per request */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ensure partners content sits above the overlay */
+.partners-bg > .max-w-7xl {
+  position: relative;
+  z-index: 10;
+}
+
+/* Force navbar to be fixed to viewport in case other rules override it */
+.liquid-nav.force-fixed {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 99999 !important;
+}
+
+/* Navbar Link Underline Animation */
+.nav-link-item {
+  position: relative;
+}
+
+.nav-link-item::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0.25rem;
+  width: 0;
+  height: 3px;
+  background: var(--teal-light);
+  border-radius: 9999px;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+.nav-link-item:hover::after,
+.nav-link-item.active::after {
+  width: calc(100% - 1.5rem);
+}
+
+.nav-link-item.mobile::after {
+  bottom: 0.35rem;
+}
+
+.nav-link-item.mobile:hover::after,
+.nav-link-item.mobile.active::after {
+  width: calc(100% - 2rem);
+}
