@@ -18,7 +18,6 @@ import {
 } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import WorkshopPopup from '@/components/WorkshopPopup'
 
 // ── Fade-in wrapper ───────────────────────────────────────────────
 function FadeIn({
@@ -194,7 +193,6 @@ export default function HomePage() {
 
   return (
     <>
-      <WorkshopPopup />
       <Navbar />
 
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-teal">

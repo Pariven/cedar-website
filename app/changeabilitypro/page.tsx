@@ -192,40 +192,6 @@ export default function ChangeabilityProPage() {
         </div>
       </section>
 
-      {/* Neuroscience for Change Workshop */}
-      <section className="py-20 bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-10">
-              <span className="text-[#1BA098] font-semibold text-sm uppercase tracking-widest">Upcoming Event</span>
-              <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl mt-2 text-balance">
-                Neuroscience for <span className="gradient-text">Change Workshop</span>
-              </h2>
-              <p className="text-muted-foreground text-base mt-4 max-w-2xl mx-auto leading-relaxed">
-                Join Melanie Franklin, Founder of ChangeabilityPro®, for a live session on why people resist change, how the brain responds to uncertainty, and what helps people adopt change.
-              </p>
-            </div>
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="/images/neuroscience-workshop-popup.jpg"
-                alt="Neuroscience for Change Workshop - 22 July 2026, 2:00PM - 3:00PM, with Melanie Franklin"
-                className="w-full h-auto block"
-              />
-            </div>
-            <div className="text-center mt-8">
-              <a
-                href="https://forms.gle/99YJck2Z6Bv7qR2x9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#7ED957] hover:bg-[#A7D948] text-[#1E3A3F] font-bold transition-all shadow-lg"
-              >
-                Join Now <ArrowRight size={16} />
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-16 bg-[#1E3A3F]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
